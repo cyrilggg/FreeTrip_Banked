@@ -1,4 +1,4 @@
 package com.example.freetrip_banked.bean;
 
-public class BlogBean {
+public class TourBean {
 }

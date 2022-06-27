@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    name: RUNOOB
+    url: jdbc:mysql://localhost:3306/RUNOOB
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.freetrip_banked.bean
