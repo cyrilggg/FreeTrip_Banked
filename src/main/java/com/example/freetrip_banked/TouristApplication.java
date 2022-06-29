@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FreeTripBankedApplication {
+public class TouristApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FreeTripBankedApplication.class, args);
+        SpringApplication.run(TouristApplication.class, args);
+        System.out.println("程序正在运行...");
     }
 
 }
