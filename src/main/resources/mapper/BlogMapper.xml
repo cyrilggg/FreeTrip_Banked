@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.freetrip_banked.mapper.BlogMapper">
+
+    <select id="selectBlogById" parameterType="String" resultType="com.example.freetrip_banked.bean.BlogBean">
+        SELECT *
+        FROM blog
+        WHERE user_id = #{id};
+    </select>
+
+    <delete id="deleteBlog" parameterType="String">
+        DELETE
+        FROM blog
+        WHERE id = #{id};
+    </delete>
+
+    <select id="getAllBlog" resultType="com.example.freetrip_banked.bean.BlogBean">
+        SELECT *
+        FROM blog;
+    </select>
+</mapper>
