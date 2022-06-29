@@ -1,11 +1,13 @@
 package com.example.freetrip_banked.servicelmpl;
 
+import com.example.freetrip_banked.bean.BlogBean;
 import com.example.freetrip_banked.mapper.BlogMapper;
 import com.example.freetrip_banked.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.*;
+import java.util.List;
 
 /**
  *
@@ -20,26 +22,20 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogMapper blogMapper ;
 
-    /**
-     * 删除博客
-     * @param id
-     * @Service
-     */
-    public boolean deleteBlog(String id){
-        Integer u=0;
-        boolean flag=false;
-        try{
-            u=Integer.parseInt(id);
-        }catch(NumberFormatException e){
-            e.printStackTrace();
-        }
-        try{
-            blogMapper.deleteByUserKey(u);
-            flag=true;
-        }catch(Exception e){
-            System.out.println("删除失败!");
-            e.printStackTrace();
-        }
-        return flag;
+
+    @Override
+    public List<BlogBean> queryBlogById(String id){
+        return blogMapper.selectBlogById(id);
+    }
+
+    @Override
+    public int deleteBlog(String id) {
+        return blogMapper.deleteBlog(id);
+    }
+
+    @Override
+    public List<BlogBean>queryAllBlog(){
+        return blogMapper.getAllBlog();
     }
 }
+

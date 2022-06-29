@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class ModifyUserController {
     @Autowired
     private UserService userService;
 
@@ -19,7 +19,7 @@ public class UserController {
     private BlogService blogService;
 
     @RequestMapping("/delete/{id}")
-    public Map deleteUser(@PathVariable("id")String  id){
+    public Map deleteUserByBlog(@PathVariable("id")String  id){
         Map<String,String> map = new HashMap<>();
 
         if (userService.deleteUser(id)){

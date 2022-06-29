@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/example/freetrip_banked/bean/BlogBean.java
+/src/main/java/com/example/freetrip_banked/controller/BlogController.java
+/src/main/java/com/example/freetrip_banked/mapper/BlogMapper.java
+/src/main/java/com/example/freetrip_banked/servicelmpl/BlogServiceImpl.java
