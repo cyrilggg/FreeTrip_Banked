@@ -1,9 +1,9 @@
 spring:
   datasource:
-    name: RUNOOB
-    url: jdbc:mysql://localhost:3306/RUNOOB
+    name: freetrip
+    url: jdbc:mysql://localhost:3306/freetrip
     username: root
-    password: 12345678
+    password: 20021212dymj
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
