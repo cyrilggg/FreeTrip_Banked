@@ -13,4 +13,20 @@
         where username= #{username} and password= #{password};
     </select>
 
+    <resultMap id="BaseResultMap" type="UserBean">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="password" property="password" />
+    </resultMap>
+
+    <parameterMap id="UserBean" type="com.example.freetrip_banked.bean.UserBean"/>
+
+    <sql id="Base_Column_List">
+        id, username, password
+    </sql>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from  users where id=#{id}
+    </delete>
+
 </mapper>

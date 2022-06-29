@@ -1,14 +1,23 @@
 package com.example.freetrip_banked.mapper;
 
-import com.example.freetrip_banked.bean.User;
+import com.example.freetrip_banked.bean.UserBean;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ *
+ * Title: UserMapper
+ * Description:
+ * 用户数据接口
+ * Version:1.0.0
 
+ */
 @Mapper
 public interface UserMapper {
 
 
-    int insertUser(User user);
+    int insertUser(UserBean user);
 
-    User loginUser(User user);
+    UserBean loginUser(UserBean user);
+
+    boolean deleteByPrimaryKey(Integer id) throws Exception;
 }
