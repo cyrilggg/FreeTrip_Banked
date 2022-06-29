@@ -1,6 +1,6 @@
 package com.example.freetrip_banked.servicelmpl;
 
-import com.example.freetrip_banked.bean.TourBean;
+import com.example.freetrip_banked.bean.BlogBean;
 import com.example.freetrip_banked.mapper.TourMapper;
 import com.example.freetrip_banked.service.TourService;
 
@@ -15,22 +15,22 @@ public class TourServiceImpl implements TourService {
     TourMapper tourMapper;
 
     @Override
-    public TourBean selectBlogByName(String name) {
+    public BlogBean selectBlogByName(String name) {
         return tourMapper.selectBlogByName(name);
     }
 
     @Override
-    public int addBlog(TourBean tourBean ) {
-        return tourMapper.insertBlog(tourBean);
+    public int addBlog(BlogBean blogBean ) {
+        return tourMapper.insertBlog(blogBean);
     }
 
     @Override
-    public int add_praise(TourBean tourBean){
-        return tourMapper.add_praise(tourBean);
+    public int add_praise(String id){
+        return tourMapper.updatePraise(id);
     }
 
     @Override
-    public List<TourBean> queryAllBlog() {
+    public List<BlogBean> queryAllBlog() {
         return tourMapper.getAllBlog();
     }
 }

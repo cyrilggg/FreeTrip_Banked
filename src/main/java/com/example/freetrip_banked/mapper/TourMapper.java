@@ -1,6 +1,6 @@
 package com.example.freetrip_banked.mapper;
 
-import com.example.freetrip_banked.bean.TourBean;
+import com.example.freetrip_banked.bean.BlogBean;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -8,14 +8,14 @@ import java.util.List;
 public interface TourMapper {
 
     //查询博客
-    TourBean selectBlogByName(String title);
+    BlogBean selectBlogByName(String title);
 
     //插入新的图书
-    int insertBlog(TourBean tourbean);
+    int insertBlog(BlogBean blogBean);
 
-    int add_praise(TourBean tourBean);
+    int updatePraise(String id);
 
     //查询所有博客
-    List<TourBean> getAllBlog();
+    List<BlogBean> getAllBlog();
 
 }

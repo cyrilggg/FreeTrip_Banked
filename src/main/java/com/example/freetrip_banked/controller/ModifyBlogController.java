@@ -3,7 +3,6 @@ package com.example.freetrip_banked.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.freetrip_banked.bean.BlogBean;
-import com.example.freetrip_banked.bean.Test;
 import com.example.freetrip_banked.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/myblog")
-public class BlogController {
+public class ModifyBlogController {
 
 
         @Autowired
@@ -35,7 +34,7 @@ public class BlogController {
             return map;
         }
          @PostMapping("/search")
-         public  JSONObject queryBlog(@RequestBody Test blogBean){
+         public  JSONObject queryBlog(@RequestBody BlogBean blogBean){
             List<BlogBean> blogs = blogService.queryBlogById(String.valueOf(blogBean.getUser_id()));
             JSONObject result=new JSONObject();
             if(blogs==null){

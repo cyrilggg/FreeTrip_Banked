@@ -1,17 +1,17 @@
 package com.example.freetrip_banked.service;
 
-import com.example.freetrip_banked.bean.TourBean;
+import com.example.freetrip_banked.bean.BlogBean;
 
 import java.util.List;
 
 public interface TourService {
      //查询博客
-    TourBean selectBlogByName(String title);
+     BlogBean selectBlogByName(String title);
 
     //插入新的图书
-    int addBlog(TourBean tourbean);
+    int addBlog(BlogBean tourbean);
 
-    int add_praise(TourBean tourBean);
+    int add_praise(String id);
     //查询所有博客
-    List<TourBean> queryAllBlog();
+    List<BlogBean> queryAllBlog();
 }

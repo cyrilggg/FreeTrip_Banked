@@ -1,6 +1,6 @@
 package com.example.freetrip_banked.controller;
 
-import com.example.freetrip_banked.bean.TourBean;
+import com.example.freetrip_banked.bean.BlogBean;
 import com.example.freetrip_banked.service.TourService;
 
 import com.alibaba.fastjson.JSONObject;
@@ -21,11 +21,10 @@ public class ModifyTourController {
     /**
      * @Description: 查询所有的博客
      * @Param: [org.springframework.ui.ModelMap]
-     * @return: java.util.List<com.example.test.bean.BookBean>
      */
     @GetMapping("/list")
     public String showBlogs() {
-        List<TourBean> BlogList = tourService.queryAllBlog();
+        List<BlogBean> BlogList = tourService.queryAllBlog();
         JSONObject result = new JSONObject();
         result.put("msg", "ok");
         result.put("data", BlogList);
@@ -38,7 +37,7 @@ public class ModifyTourController {
      * @return: java.util.Map
      */
     @PostMapping("/blog/add")
-    public Map addBlog(@RequestBody TourBean tourBean) {
+    public Map addBlog(@RequestBody BlogBean tourBean) {
         int flag = tourService.addBlog(tourBean);
         Map<String, Object> map = new HashMap<>();
         if (flag == 1) {
@@ -51,37 +50,18 @@ public class ModifyTourController {
     }
 
     /**
-     * @Description: 根据名称进行查询
-     * @Param: [java.lang.String]
-     * @return: com.example.test.bean.BookBean
-     */
-    @PostMapping("/search")
-    public String queryBook(@RequestBody Map<String, Object> params) {
-        TourBean tourBean = tourService.selectBlogByName(((String) params.get("name")));
-        JSONObject result = new JSONObject();
-        if (tourBean == null) {
-            result.put("mas", "未查询到相关信息");
-        } else {
-            result.put("msg", "ok");
-            result.put("data", tourBean);
-        }
-        return result.toJSONString();
-    }
-
-    /**
      * @Description: 点赞
      * @Param: [java.lang.String]
      * @return: com.example.test.bean.BookBean
      */
     @PostMapping("/blog/pra")
-    public Map add_praise(@RequestBody Map<String, Object> params) {
-        TourBean tourBean = tourService.selectBlogByName(((String) params.get("name")));
+    public JSONObject add_praise(@RequestBody Map<String, Object> params) {
+        int flag = tourService.add_praise((String.valueOf(params.get("id"))));
         JSONObject result = new JSONObject();
-        if (tourBean == null) {
+        if (flag == 0) {
             result.put("mas", "未查询到相关信息");
         } else {
             result.put("msg", "ok");
-            tourBean.set_praise(tourBean.get_praise() + 1);
         }
         return result;
     }
