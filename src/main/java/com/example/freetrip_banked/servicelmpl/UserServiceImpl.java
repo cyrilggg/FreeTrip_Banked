@@ -55,4 +55,9 @@ public class UserServiceImpl implements UserService {
         }
         return sum;
     }
+
+    @Override
+    public UserBean updateUser(UserBean user){
+        return userMapper.updateUser(user);
+    }
 }

@@ -73,4 +73,17 @@ public class ModifyUserController {
         }
         return map;
     }
+
+    @PostMapping("/update")
+    public String updateUser(@RequestBody UserBean user) {
+        UserBean u = userService.updateUser(user);
+        JSONObject result = new JSONObject();
+        if (u != null) {
+            result.put("msg", "ok");
+            result.put("code", "200");
+        } else {
+            result.put("msg", "error!");
+        }
+        return result.toJSONString();
+    }
 }

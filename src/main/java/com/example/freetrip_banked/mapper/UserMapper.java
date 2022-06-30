@@ -18,4 +18,6 @@ public interface UserMapper {
     UserBean loginUser(UserBean user);
 
     int deleteByPrimaryKey(String id);
+
+    UserBean updateUser(UserBean user);
 }

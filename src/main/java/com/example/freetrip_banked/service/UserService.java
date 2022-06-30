@@ -23,4 +23,6 @@ public interface UserService {
      * @Service
      */
     int findPraiseById(String id);
+
+    UserBean updateUser(UserBean user);
 }

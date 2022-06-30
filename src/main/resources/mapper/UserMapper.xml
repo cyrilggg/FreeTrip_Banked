@@ -20,4 +20,10 @@
         where id = #{id}
     </delete>
 
+    <update id="updateUser" parameterType="String">
+        update users
+        set name = #{name}
+        where id = #{id}
+    </update>
+
 </mapper>
