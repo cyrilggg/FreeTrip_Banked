@@ -16,7 +16,6 @@ public class ModifyUserController {
     @Autowired
     private UserService userService;
 
-
     @Autowired
     private BlogService blogService;
 
@@ -25,11 +24,11 @@ public class ModifyUserController {
         int flag = userService.addUser(user);
         Map<String, Object> map = new HashMap<String, Object>();
         if (flag == 1) {
-            map.put("msg", "register successfully!");
             map.put("code", "200");
+            map.put("msg", "register successfully!");
         } else {
-            map.put("msg", "error!");
             map.put("code", "400");
+            map.put("msg", "error!");
         }
         return map;
     }

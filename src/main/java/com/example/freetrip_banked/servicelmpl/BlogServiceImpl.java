@@ -22,7 +22,6 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogMapper blogMapper ;
 
-
     @Override
     public List<BlogBean> queryBlogById(String id){
         return blogMapper.selectBlogById(id);

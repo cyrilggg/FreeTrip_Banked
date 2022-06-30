@@ -1,13 +1,9 @@
 spring:
   datasource:
-    name: freetrip
+    name: freetip
     url: jdbc:mysql://localhost:3306/freetrip
     username: root
-<<<<<<< HEAD
-    password: 20021212dymj
-=======
-    password: mysqlsql123
->>>>>>> ff7bb45baa6ed96c4fa53aee3d7e5fe7ba5ac91d
+    password: 12345678
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:

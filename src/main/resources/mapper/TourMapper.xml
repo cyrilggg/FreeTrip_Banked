@@ -3,18 +3,18 @@
 <mapper namespace="com.example.freetrip_banked.mapper.TourMapper">
 
     <insert id="insertBlog" parameterType="com.example.freetrip_banked.bean.BlogBean">
-        INSERT INTO blog(user_id, title, content, praise,build_time)
-        VALUES (#{user_id}, #{title}, #{content}, 0,#{build_time});
+        INSERT INTO blogs(user_id, title, content, build_time, praise)
+        VALUES (#{user_id}, #{title}, #{content}, #{build_time}, 0);
     </insert>
 
     <update id="updatePraise" parameterType="String">
-        UPDATE blog
+        UPDATE blogs
         SET praise = praise + 1
         WHERE id = #{id};
     </update>
 
     <select id="getAllBlog" resultType="com.example.freetrip_banked.bean.BlogBean">
         SELECT *
-        FROM blog;
+        FROM blogs;
     </select>
 </mapper>

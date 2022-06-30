@@ -34,7 +34,7 @@ public class ModifyBlogController {
         }
          @PostMapping("/search")
          public  JSONObject queryBlog(@RequestBody BlogBean blogBean){
-            List<BlogBean> blogs = blogService.queryBlogById(String.valueOf(blogBean.getUserId()));
+            List<BlogBean> blogs = blogService.queryBlogById(String.valueOf(blogBean.getUser_id()));
             JSONObject result=new JSONObject();
             if(blogs==null){
                 result.put("msg","search error!");

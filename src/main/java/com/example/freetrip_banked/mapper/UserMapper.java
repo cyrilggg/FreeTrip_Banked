@@ -11,13 +11,11 @@ import org.apache.ibatis.annotations.Mapper;
  * Version:1.0.0
 
  */
-@Mapper
 public interface UserMapper {
-
 
     int insertUser(UserBean user);
 
     UserBean loginUser(UserBean user);
 
-    boolean deleteByPrimaryKey(Integer id) throws Exception;
+    int deleteByPrimaryKey(String id);
 }

@@ -42,22 +42,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean deleteUser(String id) {
-        Integer u=0;
-        boolean flag=false;
-        try{
-            u=Integer.parseInt(id);
-        }catch(NumberFormatException e){
-            e.printStackTrace();
-        }
-        try{
-            blogMapper.deleteByUserKey(u);
-            userMapper.deleteByPrimaryKey(u);
-            flag=true;
-        }catch(Exception e){
-            System.out.println("删除失败!");
-            e.printStackTrace();
-        }
-        return flag;
+        return   blogMapper.deleteByUserKey(id) == 1 && userMapper.deleteByPrimaryKey(id) == 1;
     }
 
     @Override

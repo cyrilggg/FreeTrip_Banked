@@ -1,69 +1,61 @@
 package com.example.freetrip_banked.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class BlogBean{
-    /**
-     * 博客id
-     */
     private int id;
-
-    /**
-     * 用户id
-     */
     private int user_id;
-
-    /**
-     * 博客标题
-     */
     private String title;
-
-    /**
-     * 博客内容
-     */
     private String content;
 
-    /**
-     * 获赞数
-     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private String build_time;
     private int praise;
-
-    public BlogBean(){
-    }
-
-    public BlogBean(Integer id, Integer user_id, String title, String content, Integer praise){
-        this.id=id;
-        this.user_id=user_id;
-        this.title=title;
-        this.content=content;
-        this.praise=praise;
-    }
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-    public int getUserId() {
+
+    public int getUser_id() {
         return user_id;
     }
-    public void setUserId(int user_id) {
+
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
+
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
+
     public String getContent() {
         return content;
     }
+
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getBuild_time() {
+        return build_time;
+    }
+
+    public void setBuild_time(String build_time) {
+        this.build_time = build_time;
+    }
+
     public int getPraise() {
         return praise;
     }
+
     public void setPraise(int praise) {
         this.praise = praise;
     }

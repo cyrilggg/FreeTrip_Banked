@@ -1,7 +1,6 @@
 package com.example.freetrip_banked.mapper;
 
 import com.example.freetrip_banked.bean.BlogBean;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -13,10 +12,9 @@ import java.util.List;
  * Version:1.0.0
 
  */
-@Mapper
 public interface BlogMapper {
 
-    boolean deleteByUserKey(Integer id) throws Exception;
+    int deleteByUserKey(String id);
 
     List<BlogBean> findByUserId(Integer id);
 

@@ -1,5 +1,7 @@
+use freetrip;
+
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS blog;
+DROP TABLE IF EXISTS blogs;
 
 CREATE TABLE users
 (
@@ -8,13 +10,23 @@ CREATE TABLE users
     password varchar(10) NOT NULL ,
     primary key (id)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 26
+  AUTO_INCREMENT = 1
   DEFAULT CHARSET = utf8;
 
-INSERT INTO users(name)
-VALUES ('小王'),('小李');
+INSERT INTO users
+VALUES ('1', 'admin', 'admin');
+INSERT INTO users
+VALUES ('2', 'user', 'user');
+INSERT INTO users
+VALUES ('3', '1', '1');
+INSERT INTO users
+VALUES ('4', '2', '2');
+INSERT INTO users
+VALUES ('22', '3', '3');
+INSERT INTO users
+VALUES ('25', '4', '4');
 
-CREATE TABLE blog
+CREATE TABLE blogs
 (
     id         int(10)     NOT NULL AUTO_INCREMENT COMMENT 'blogID',
     user_id    int(10)     NOT NULL COMMENT'用户id',
@@ -27,14 +39,7 @@ CREATE TABLE blog
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-insert into blog(user_id,title, content, build_time,praise)
-values(26,'shanghai','shanghai is one of Chinese busiest cities','2022-6-01',100),
-      (26,'wuhan','wuhan is one of Chinese busiest cities','2022-6-02',110),
-      (27,'guangdong','guangdong is one of Chinese busiest cities','2022-6-01',100);
-
--- ALTER TABLE 表名 ADD 字段名 VARCHAR(500) DEFAULT NULL COMMENT 注释
-ALTER TABLE users ADD password VARCHAR(10) ;
-
-
-
-delete from blog where id = '1';
+insert into blogs(user_id,title, content, build_time,praise)
+values(22,'shanghai','shanghai is one of Chinese busiest cities','2022-6-01',100),
+      (22,'wuhan','wuhan is one of Chinese busiest cities','2022-6-02',110),
+      (25,'guangdong','guangdong is one of Chinese busiest cities','2022-6-01',100);
