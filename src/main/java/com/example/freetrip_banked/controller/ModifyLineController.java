@@ -18,7 +18,7 @@ public class ModifyLineController {
 
     @PostMapping("/search/{city}")
     public JSONObject findbycity(@PathVariable("city")String city){
-        List<LineBean> lines = lineService.findbycity(city);
+        List<LineBean> lines = lineService.queryByCity(city);
         JSONObject result = new JSONObject();
         if(lines == null){
             result.put("msg","search error!");

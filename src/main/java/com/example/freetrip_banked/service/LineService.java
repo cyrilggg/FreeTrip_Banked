@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface LineService {
-    List<LineBean> findbycity(String city);
+    List<LineBean> queryByCity(String city);
 }

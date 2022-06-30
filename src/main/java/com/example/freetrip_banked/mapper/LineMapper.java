@@ -5,5 +5,5 @@ import com.example.freetrip_banked.bean.LineBean;
 import java.util.List;
 
 public interface LineMapper {
-    List<LineBean> findbycity(String city);
+    List<LineBean> findByCity(String city);
 }

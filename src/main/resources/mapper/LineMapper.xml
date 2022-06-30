@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.freetrip_banked.mapper.LineMapper">
 
-    <select id="findbycity" parameterType="String" resultType="com.example.freetrip_banked.bean.LineBean">
-        select
-        from Line
+    <select id="findByCity" parameterType="String" resultType="com.example.freetrip_banked.bean.LineBean">
+        select *
+        from routes
         where city = #{city}
     </select>
 
