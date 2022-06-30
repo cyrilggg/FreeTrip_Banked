@@ -21,10 +21,6 @@ INSERT INTO users
 VALUES ('3', '1', '1');
 INSERT INTO users
 VALUES ('4', '2', '2');
-INSERT INTO users
-VALUES ('22', '3', '3');
-INSERT INTO users
-VALUES ('25', '4', '4');
 
 CREATE TABLE blogs
 (

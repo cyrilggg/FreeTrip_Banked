@@ -16,7 +16,7 @@ public interface BlogMapper {
 
     int deleteByUserKey(String id);
 
-    List<BlogBean> findByUserId(Integer id);
+    List<BlogBean> findByUserId(String id);
 
     //根据id删除Blog
     int deleteBlog(String id);

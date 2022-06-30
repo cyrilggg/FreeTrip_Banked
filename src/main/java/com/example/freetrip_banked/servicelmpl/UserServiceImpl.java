@@ -12,51 +12,46 @@ import java.util.List;
 import java.lang.*;
 
 /**
- *
  * Title: UserServiceImpl
  * Description:
  * 用户操作实现类
  * Version:1.0.0
-
  */
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private UserMapper userMapper ;
+    private UserMapper userMapper;
 
     @Autowired
-    private BlogMapper blogMapper ;
+    private BlogMapper blogMapper;
 
     @Override
-    public int addUser(UserBean user){
-        int flag=userMapper.insertUser(user);
+    public int addUser(UserBean user) {
+        int flag = userMapper.insertUser(user);
         return flag;
     }
 
-    /**用户登录
-     * @return*/
-    public UserBean LoginUser(UserBean user){
+    /**
+     * 用户登录
+     *
+     * @return
+     */
+    public UserBean LoginUser(UserBean user) {
 
         return userMapper.loginUser(user);
     }
 
     @Override
     public boolean deleteUser(String id) {
-        return   blogMapper.deleteByUserKey(id) == 1 && userMapper.deleteByPrimaryKey(id) == 1;
+        return blogMapper.deleteByUserKey(id) == 1 && userMapper.deleteByPrimaryKey(id) == 1;
     }
 
     @Override
     public int findPraiseById(String id) {
-        Integer u=0;
-        try{
-            u=Integer.parseInt(id);
-        }catch(NumberFormatException e){
-            e.printStackTrace();
-        }
-        int sum=0;
-        List<BlogBean> L=blogMapper.findByUserId(u);
-        for(BlogBean b: L){
-            sum=sum+b.getPraise();
+        int sum = 0;
+        List<BlogBean> L = blogMapper.findByUserId(id);
+        for (BlogBean b : L) {
+            sum += b.getPraise();
         }
         return sum;
     }
