@@ -76,9 +76,9 @@ public class ModifyUserController {
 
     @PostMapping("/update")
     public String updateUser(@RequestBody UserBean user) {
-        UserBean u = userService.updateUser(user);
+        int u = userService.updateUser(user);
         JSONObject result = new JSONObject();
-        if (u != null) {
+        if (u == 1) {
             result.put("msg", "ok");
             result.put("code", "200");
         } else {

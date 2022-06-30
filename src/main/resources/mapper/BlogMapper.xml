@@ -5,13 +5,13 @@
     <delete id="deleteByUserKey" parameterType="String">
         delete
         from blogs
-        where user_id = #{id}
+        where user_id = #{user_id};
     </delete>
 
     <select id="findByUserId" parameterType="String" resultType="com.example.freetrip_banked.bean.BlogBean">
         select *
         from blogs
-        where user_id = #{user_id}
+        where user_id = #{user_id};
     </select>
 
     <select id="selectBlogById" parameterType="String" resultType="com.example.freetrip_banked.bean.BlogBean">

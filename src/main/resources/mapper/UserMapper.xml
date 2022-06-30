@@ -11,19 +11,22 @@
         select *
         from users
         where name = #{name}
-          and password = #{password};
+        and password = #{password};
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="String">
         delete
         from users
-        where id = #{id}
+        where id = #{id};
     </delete>
 
-    <update id="updateUser" parameterType="String">
+    <update id="updateUser" parameterType="UserBean">
         update users
-        set name = #{name}
-        where id = #{id}
+        set
+        <if test="name!=null and name!=''">
+            name = #{name}
+        </if>
+        where id = #{id};
     </update>
 
 </mapper>

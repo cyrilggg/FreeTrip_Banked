@@ -19,5 +19,5 @@ public interface UserMapper {
 
     int deleteByPrimaryKey(String id);
 
-    UserBean updateUser(UserBean user);
+    int updateUser(UserBean user);
 }

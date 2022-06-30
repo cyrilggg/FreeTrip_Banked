@@ -35,7 +35,7 @@ CREATE TABLE blogs
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-insert into blogs(user_id,title, content, build_time,praise)
-values(22,'shanghai','shanghai is one of Chinese busiest cities','2022-6-01',100),
-      (22,'wuhan','wuhan is one of Chinese busiest cities','2022-6-02',110),
-      (25,'guangdong','guangdong is one of Chinese busiest cities','2022-6-01',100);
+INSERT INTO blogs
+VALUES ('4', '2', '2', '2', '2', '2');
+INSERT INTO blogs
+VALUES ('1', '2', '2', '2', '2', '2');
