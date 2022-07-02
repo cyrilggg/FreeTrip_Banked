@@ -43,10 +43,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean deleteUser(String id) {
-        if(blogMapper.findByUserId(id).size()==0)
-            return userMapper.deleteByPrimaryKey(id)==1;
+        if (blogMapper.findByUserId(id).size() == 0)
+            return userMapper.deleteByPrimaryKey(id) == 1;
         else
-            return blogMapper.deleteByUserKey(id) ==1 && userMapper.deleteByPrimaryKey(id) ==1;
+            return blogMapper.deleteByUserKey(id) == 1 && userMapper.deleteByPrimaryKey(id) == 1;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateUser(UserBean user){
+    public int updateUser(UserBean user) {
         return userMapper.updateUser(user);
     }
 }

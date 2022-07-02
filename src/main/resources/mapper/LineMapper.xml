@@ -5,7 +5,7 @@
     <select id="findByCity" parameterType="String" resultType="com.example.freetrip_banked.bean.LineBean">
         select *
         from routes
-        where city = #{city}
+        where  city = #{city}
     </select>
 
 </mapper>

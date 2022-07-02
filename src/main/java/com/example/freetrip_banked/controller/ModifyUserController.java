@@ -24,10 +24,10 @@ public class ModifyUserController {
         int flag = userService.addUser(user);
         Map<String, Object> map = new HashMap<String, Object>();
         if (flag == 1) {
-            map.put("code", "200");
+            map.put("code", 200);
             map.put("msg", "register successfully!");
         } else {
-            map.put("code", "400");
+            map.put("code", 400);
             map.put("msg", "error!");
         }
         return map;
@@ -35,14 +35,15 @@ public class ModifyUserController {
 
 
     @RequestMapping("/delete/{id}")
-    public Map deleteUserByBlog(@PathVariable("id")String  id){
-        Map<String,String> map = new HashMap<>();
+    public Map deleteUserByBlog(@PathVariable("id") String id) {
+        Map<String, Object> map = new HashMap<>();
 
-        if (userService.deleteUser(id)){
-            map.put("msg","delete successful!");
-            map.put("code","200");
-        }else{
-            map.put("msg","delete error!");
+        if (userService.deleteUser(id)) {
+            map.put("msg", "delete successful!");
+            map.put("code", 200);
+        } else {
+            map.put("msg", "delete error!");
+            map.put("code", 400);
         }
         return map;
     }
@@ -57,31 +58,34 @@ public class ModifyUserController {
             result.put("data", u);
         } else {
             result.put("msg", "error!");
+            result.put("data", null);
         }
         return result.toJSONString();
     }
 
     @RequestMapping("/pra/{id}")
-    public Map getPraise(@PathVariable("id")String  id){
-        Map<String,String> map = new HashMap<>();
+    public Map getPraise(@PathVariable("id") String id) {
+        Map<String, Object> map = new HashMap<>();
         int num = userService.findPraiseById(id);
-        if (num >= 0){
-            map.put("code","200");
+        if (num >= 0) {
+            map.put("code", 200);
             map.put("data", String.valueOf(num));
-        }else{
-            map.put("msg","delete error!");
+        } else {
+            map.put("msg", "delete error!");
+            map.put("code", 400);
         }
         return map;
     }
 
-    @PostMapping("/update")
+    @PostMapping("/setname")
     public String updateUser(@RequestBody UserBean user) {
         int u = userService.updateUser(user);
         JSONObject result = new JSONObject();
         if (u == 1) {
+            result.put("code", 200);
             result.put("msg", "ok");
-            result.put("code", "200");
         } else {
+            result.put("code", 400);
             result.put("msg", "error!");
         }
         return result.toJSONString();

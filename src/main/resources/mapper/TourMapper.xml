@@ -4,7 +4,7 @@
 
     <insert id="insertBlog" parameterType="com.example.freetrip_banked.bean.BlogBean">
         INSERT INTO blogs(user_id, title, content, build_time, praise)
-        VALUES (#{user_id}, #{title}, #{content}, #{build_time}, 0);
+        VALUES (#{user_id}, 'WuHan', #{content}, curdate(), 0);
     </insert>
 
     <update id="updatePraise" parameterType="String">
@@ -14,7 +14,11 @@
     </update>
 
     <select id="getAllBlog" resultType="com.example.freetrip_banked.bean.BlogBean">
-        SELECT *
-        FROM blogs;
+        SELECT blogs.id, user_id, title, content, build_time, praise, users.name as user_name
+        FROM blogs,
+             users
+        WHERE blogs.user_id = users.id
+        ORDER BY praise desc;
     </select>
+
 </mapper>

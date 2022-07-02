@@ -5,6 +5,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class BlogBean{
     private int id;
     private int user_id;
+
+    private String user_name;
+
     private String title;
     private String content;
 
@@ -58,5 +61,13 @@ public class BlogBean{
 
     public void setPraise(int praise) {
         this.praise = praise;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 }

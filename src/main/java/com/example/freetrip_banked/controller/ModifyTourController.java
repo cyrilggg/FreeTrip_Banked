@@ -17,6 +17,7 @@ public class ModifyTourController {
 
     @Autowired
     TourService tourService;
+
     /*
     /**
      * @Description: 查询所有的博客
@@ -26,8 +27,15 @@ public class ModifyTourController {
     public String showBlogs() {
         List<BlogBean> BlogList = tourService.queryAllBlog();
         JSONObject result = new JSONObject();
-        result.put("msg", "ok");
-        result.put("data", BlogList);
+        if (BlogList != null) {
+            result.put("code", 200);
+            result.put("msg", "ok");
+            result.put("data", BlogList);
+        } else {
+            result.put("code", 400);
+            result.put("msg", "error!");
+            result.put("data", null);
+        }
         return result.toJSONString();
     }
 
@@ -41,9 +49,10 @@ public class ModifyTourController {
         int flag = tourService.addBlog(tourBean);
         Map<String, Object> map = new HashMap<>();
         if (flag == 1) {
-            map.put("code", "200");
+            map.put("code", 200);
             map.put("msg", "successful!");
         } else {
+            map.put("code", 400);
             map.put("msg", "add error!");
         }
         return map;
@@ -59,8 +68,10 @@ public class ModifyTourController {
         int flag = tourService.add_praise((String.valueOf(params.get("id"))));
         JSONObject result = new JSONObject();
         if (flag == 0) {
-            result.put("mas", "未查询到相关信息");
+            result.put("code", 400);
+            result.put("msg", "未查询到相关信息");
         } else {
+            result.put("code", 200);
             result.put("msg", "ok");
         }
         return result;
